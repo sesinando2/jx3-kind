@@ -1,0 +1,20 @@
+name: BDD test
+on:
+#  push:
+#    branches:
+#    - main
+#    - master
+
+  # TODO disable kind BDD for now until it works reliably
+  # pull_request:
+
+  # allow manual triggering
+  workflow_dispatch: {}
+jobs:
+  kind:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Kind
+      run: |
+        sudo -E .github/workflows/bdd.sh
